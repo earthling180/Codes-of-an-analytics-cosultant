@@ -23,3 +23,10 @@ order by employee_id
 DELETE FROM Person WHERE
 Id NOT IN (SELECT MIN(p.Id) FROM (SELECT * FROM Person) p
 Group by p.Email);
+
+#Change the names in a column to proper format
+select user_id, 
+(concat(upper(left(name,1)),lower(substring(name,2,length(name)))))as name
+from
+Users
+Order by user_id

@@ -36,3 +36,10 @@ select sell_date, count(distinct product) as num_sold, (group_concat(distinct pr
 from Activities
 group by 1
 order by 1
+
+#Get rows with values like
+select patient_id, patient_name, conditions
+from 
+Patients
+where
+conditions like '% DIAB1%' OR conditions like 'DIAB1%'

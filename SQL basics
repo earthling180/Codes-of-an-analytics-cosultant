@@ -19,7 +19,7 @@ from
 Employees)q
 order by employee_id
 
-#Remove duplicates
+#Remove duplicates by keeping the minimum value
 DELETE FROM Person WHERE
 Id NOT IN (SELECT MIN(p.Id) FROM (SELECT * FROM Person) p
 Group by p.Email);
@@ -61,3 +61,11 @@ t2.employee_id not in
 (select employee_id from
 employees)
 order by employee_id
+
+#Updating a table by interchanging two values
+update Salary
+set sex = case 
+when sex = 'm' then 'f'
+else 'm'
+end
+
